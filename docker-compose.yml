@@ -42,24 +42,24 @@ services:
       WORDPRESS_DB_USER: wordpress
       WORDPRESS_DB_PASSWORD: wordpress
 
-  scrape:
-    build:
-      dockerfile: Dockerfile
-      context: .
-    # depends_on:
-    #   - wordpress
-    #   - db
-    links:
-      - wordpress
-    image: scrape
-    command: sh -c "sh ./run.sh"
-    networks: 
-      - wp-net
-    ports:
-      - "3000:3000"
-    volumes:
-      - "./:/home"
-      - "./run.sh:/home/run.sh"
+  # scrape:
+  #   build:
+  #     dockerfile: Dockerfile
+  #     context: .
+  #   # depends_on:
+  #   #   - wordpress
+  #   #   - db
+  #   links:
+  #     - wordpress
+  #   image: scrape
+  #   command: sh -c "sh ./run.sh"
+  #   networks: 
+  #     - wp-net
+  #   ports:
+  #     - "3000:3000"
+  #   volumes:
+  #     - "./:/home"
+  #     - "./run.sh:/home/run.sh"
       
 networks:
   wp-net:

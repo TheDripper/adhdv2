@@ -44,9 +44,9 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/tailwindcss
-    "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
-    "~/modules/class-purge.js"
+    "~/modules/class-purge.js",
+    "@nuxtjs/tailwindcss",
   ],
   googleFonts: {
     families: {
@@ -64,7 +64,7 @@ export default {
   ],
   proxy: {
     "/api": {
-      target: "http://wordpress/wp-json/wp/v2",
+      target: "http://localhost:9009/wp-json/wp/v2",
       changeOrigin: true,
       pathRewrite: {
         "^/api/":"/"
