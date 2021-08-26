@@ -1,9 +1,7 @@
 <template>
   <div id="root" class="">
     <div :class="classes"></div>
-    <div id="header" v-html="header.content.rendered" class=""></div>
     <div id="content" v-html="page.content.rendered" class=""></div>
-    <div id="footer" v-html="footer.content.rendered" class=""></div>
   </div>
 </template>
 
@@ -14,13 +12,13 @@ export default {
   methods: {
     ...mapActions(["getPage"]),
   },
-  async asyncData({$axios}) {
+  async asyncData({ $axios }) {
     try {
       // let data = await getPage(6);
       const page = await $axios.$get("/api/pages/6");
       return {
-        page
-      }
+        page,
+      };
     } catch (err) {
       console.log(err);
     }
@@ -66,6 +64,7 @@ export default {
 }
 html,
 body {
+  background: blue;
 }
 h1,
 h2,
@@ -175,5 +174,83 @@ ul {
   img {
     height: auto;
   }
+}
+.spam {
+  img {
+    max-width: 220%;
+  }
+}
+.no {
+  img {
+    z-index: 10;
+    position: relative;
+    max-width: 130%;
+    transform: translate(-25%);
+  }
+}
+.stock {
+  img {
+    max-width: 115%;
+    transform: translate(-20%);
+  }
+}
+.wantneed {
+  transform: translateY(-10%);
+}
+.why {
+  img {
+    max-width: 1600px;
+    width: 200%;
+  }
+}
+.youwantto {
+  img {
+    width: 80%;
+    transform: rotate(20deg) scale(1.1);
+    z-index: 20;
+    position: relative;
+  }
+}
+.soyouneed {
+  animation: 3s linear infinite alternate soyou;
+}
+@keyframes soyou {
+  to {
+    transform: rotate(-40deg) scale(2);
+    opacity: 0;
+  }
+}
+.green {
+  position: relative;
+  transform: translate(-20%);
+}
+.pink {
+  position: relative;
+  transform: translateY(20%);
+}
+.resume {
+  position: relative;
+  transform: translate(25%);
+  z-index: 30;
+  width: 60vw;
+  max-width: 60vw;
+  h1 {
+    font-family: "vcr";
+    text-shadow: 5px 5px 0 black, -5px -5px 0 black, -5px 5px 0 black,
+      5px -5px 0 black;
+    transition: all 0.3s ease;
+    padding: 1rem;
+    &:hover {
+      background: black;
+      text-shadow: 5px 5px 0 lime, -5px -5px 0 cyan, -5px 5px 0 magenta;
+      color: black;
+      border: 3px solid blue;
+      padding-left: 2rem;
+    }
+  }
+}
+@font-face {
+  font-family: "vcr";
+  src: url("/vcr.ttf");
 }
 </style>
