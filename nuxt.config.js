@@ -28,15 +28,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["@/assets/style.min.css", "@/static/slick.css"],
+  css: ["@/assets/style.min.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    {
-      src: "~/plugins/slider.js",
-      mode: "client"
-    }
-  ],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -59,21 +54,10 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
-    "@nuxtjs/proxy",
     "@nuxt/content"
   ],
-  proxy: {
-    "/api": {
-      target: "http://localhost:9009/wp-json/wp/v2",
-      changeOrigin: true,
-      pathRewrite: {
-        "^/api/":"/"
-      }
-    }
-  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    proxy: true
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
