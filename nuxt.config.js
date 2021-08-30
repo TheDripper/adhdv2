@@ -2,9 +2,9 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: "static",
   // Global page headers: https://go.nuxtjs.dev/config-head
-  server: {
-    host: "0.0.0.0"
-  },
+  // server: {
+  //   host: "0.0.0.0"
+  // },
   // serverMiddleware: [
   //   { path: "/server-middleware", handler: "~/server-middleware/rest.js" },
   // ],
